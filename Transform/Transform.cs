@@ -4,22 +4,10 @@ using System.Collections.Generic;
 
 namespace Transform
 {
-    // // Delegate that takes the lamba expression
-    // public delegate int ExpressionDelegate(int number);
-    // public static class Transform 
-    // {
-    //     public static int[] Map(this int[] numbers, ExpressionDelegate expressionDelegate)
-    //     {
-    //         // individually transform elements of the array
-    //         int[] result = new int[numbers.Length];
-    //         for(int i = 0; i < result.Length; i++){
-    //             result[i] = expressionDelegate(numbers[i]);
-    //         }
-    //         return result;
-    //     }
-    // }
-
     public static class Transform{
+        // Map() works on any collection which implements IEnumberable, Func is a
+        // inbuilt delegate that transforms our collection according to the 
+        // function passed to it.
         public static IEnumerable<TResult> Map<TSource, TResult>(this IEnumerable<TSource> input,Func<TSource,TResult> expressionFunc){
             return input.Select(expressionFunc);
         } 
